@@ -108,8 +108,8 @@ set background=light
 colorscheme solarized
 
 " Nerdtree config
-" Enable nice colors
-let NERDChristmasTree = 1
+" Enable nice colors (not compatible with arrows)
+" let NERDChristmasTree = 1
 
 " Make it easy to see where we are
 let NERDTreeHighlightCursorline = 1
@@ -123,6 +123,12 @@ let NERDTreeShowHidden = 1
 " Don't hijack NETRW
 let NERDTreeHijackNetrw = 0
 let NERDTreeIgnore=['\.$', '\~$']
+
+" No 'help?' and 'up a dir' etc.
+let NERDTreeMinimalUI=1
+
+" Use arrows for directories
+let NERDTreeDirArrows=1
 
 " Make F2 open NERDTree
 nmap <F2> :NERDTreeToggle<CR>
