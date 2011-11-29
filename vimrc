@@ -102,6 +102,11 @@ set splitright
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+" Show at least 3 lines above/below cursor
+set scrolloff=3
+" Show at least 7 columns next to cursor
+set sidescrolloff=7
+set sidescroll=1
 
 " Colorscheme
 set background=light
@@ -143,3 +148,7 @@ let NERDSpaceDelims = 1
 " map <C-/> <plug>NERDCommenterToggle<CR>
 " imap <C-/> <Esc><plug>NERDCommenterToggle<CR>i
 
+" Bclose; do not let NERDTree take the whole window after closing the last
+" buffer. See: http://www.reddit.com/r/vim/comments/m4cjp/i_have_this_issue_i_keep_running_into_with/
+cmap bc Bclose
+nmap <Leader>q :Bclose<CR>
