@@ -152,3 +152,8 @@ let NERDSpaceDelims = 1
 " buffer. See: http://www.reddit.com/r/vim/comments/m4cjp/i_have_this_issue_i_keep_running_into_with/
 cmap bc Bclose
 nmap <Leader>q :Bclose<CR>
+
+" Command-t
+let g:CommandTMaxHeight=20
+
+
