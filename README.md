@@ -9,9 +9,9 @@ git submodule add https://github.com/tpope/vim-fugitive.git bundle/fugitive
 ### Command-T specific
 
 Switch to system ruby
+
 ```bash
 rbenv global system
-
 ```
 
 Build extension
@@ -28,4 +28,8 @@ git submodule init
 git submodule update
 ```
 
-Update all submodules: git submodule foreach git pull
+Update all submodules: 
+
+```bash
+git submodule foreach git pull
+```
