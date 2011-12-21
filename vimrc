@@ -156,4 +156,6 @@ nmap <Leader>q :Bclose<CR>
 " Command-t
 let g:CommandTMaxHeight=20
 
+" git branch in statusline
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
