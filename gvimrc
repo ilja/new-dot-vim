@@ -1,7 +1,7 @@
 " Gvim config
 
 " Set the guifont
-set guifont=Monaco:h14
+set guifont=Inconsolata\ 14
 
 " ?
 set antialias
@@ -21,6 +21,9 @@ set guioptions+=e
 
 " Don't highlight search result.
 set nohlsearch
+
+" Control-Shift-F for Ack
+map <C-F> :Ack<space>
 
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<D-T>
