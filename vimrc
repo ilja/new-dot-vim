@@ -110,7 +110,7 @@ set sidescroll=1
 
 " Colorscheme
 set background=light
-colorscheme solarized
+colorscheme Tomorrow
 
 " Nerdtree config
 " Enable nice colors (not compatible with arrows)
