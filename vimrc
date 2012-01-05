@@ -153,6 +153,11 @@ let NERDSpaceDelims = 1
 cmap bc Bclose
 nmap <Leader>q :Bclose<CR>
 
+" Temporarily disable :wq until I learn not to close the damn app the whole
+" time when I only want to save
+:cmap wq w
+
+
 " Command-t
 let g:CommandTMaxHeight=20
 
