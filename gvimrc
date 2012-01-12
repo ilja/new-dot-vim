@@ -1,7 +1,11 @@
 " Gvim config
 
 " Set the guifont
-set guifont=Inconsolata\ 14
+if has("gui_macvim")
+  set guifont=Monaco:h14
+else
+  set guifont=Inconsolata\ 14
+endif
 
 " ?
 set antialias
