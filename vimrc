@@ -77,6 +77,10 @@ set expandtab
 " Highlight column 100
 " set colorcolumn=100
 
+" Ignore .git etc dirs
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
+
 " Disable noise
 set vb t_vb=
 
