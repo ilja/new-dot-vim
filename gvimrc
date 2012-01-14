@@ -2,7 +2,8 @@
 
 " Set the guifont
 if has("gui_macvim")
-  set guifont=Monaco:h14
+  "set guifont=Monaco:h14
+  set guifont=Inconsolata-dz\ for\ Powerline:h14
 else
   "set guifont=Inconsolata\ 14
   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14

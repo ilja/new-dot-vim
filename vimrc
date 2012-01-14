@@ -108,6 +108,15 @@ set vb t_vb=
 " Change leader from \ to ,
 let mapleader = ","
 
+" Keybindings
+" Next buffer
+nmap <silent> ,. :bnext<CR>
+
+" Previous buffer
+nmap <silent> ,m :bprev<CR>
+
+
+
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
@@ -184,8 +193,16 @@ nmap <Leader>q :Bclose<CR>
 
 
 " Command-t
-let g:CommandTMaxHeight=20
+"let g:CommandTMaxHeight=20
+
+" Buffergator
+nmap <F3> :BuffergatorToggle<CR>
+let g:buffergator_suppress_keymaps=1 "disable the default keybindings
+let g:buffergator_viewport_split_policy="R"
+let g:buffergator_split_size=40
+let g:buffergator_autoexpand_on_split=0
+
 
 " git branch in statusline
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
