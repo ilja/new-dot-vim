@@ -30,6 +30,9 @@ set encoding=utf-8                                      " Set encoding inside vi
 "set ruler                                               " Show ruler at bottom
 "set backspace=indent,eol,start                          " Nothing can stop the backspace !
 
+" Use 256 color mode in terminal
+set t_Co=256
+
 " Line numbers 3 spaces wide
 set number
 set numberwidth=3
@@ -76,6 +79,9 @@ set expandtab
 
 " Highlight column 100
 " set colorcolumn=100
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " Ignore .git etc dirs
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
