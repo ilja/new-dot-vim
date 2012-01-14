@@ -83,19 +83,18 @@ set expandtab
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
+" Wildignore
 " Ignore .git etc dirs
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
-
-" Disable output and VCS files
-set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
-
+" Disable output, slite and VCS files
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem,*.sqlite3,Gemfile.lock
 " Disable archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-
 " Ignore bundler and sass cache
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-
+" Ignore bundler binstubs and rails script
+set wildignore+=*/bin/*,*/script/*
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
