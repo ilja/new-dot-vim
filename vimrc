@@ -201,7 +201,32 @@ let g:buffergator_viewport_split_policy="R"
 let g:buffergator_split_size=40
 let g:buffergator_autoexpand_on_split=0
 
+" MiniBufExplorer
+" toggle minibufexplorer
+nmap <F1> :TMiniBufExplorer<CR>
+" open on top
+let g:miniBufExplSplitBelow=0
+
+" Control-][ to increase/decrease indentation
+"vmap <C-]> >gv
+"vmap <C-[> <gv
+
+" Control-/ to toggle comments
+"map <C-/> <plug>NERDCommenterToggle<CR>
+"imap <C-/> <Esc><plug>NERDCommenterToggle<CR>i
+
+" Rotates through open buffers with control-tab / shift-control-tab
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
+" And also with page up/down
+map <C-PageUp> :bprevious<cr>
+map <C-PageDown> :bnext<cr>
+
+"map <C-PageUp> :BufSurfForward<CR>
+"map <C-PageDown> :BufSurfBack<CR>
+
 
 " git branch in statusline
 "set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+nmap <F12> :source $MYVIMRC<CR>
