@@ -3,7 +3,6 @@
 "
 " Use ':source $MYVIMRC' to quickley see changes
 
-
 " Initialize pathogen
 call pathogen#infect()
 
@@ -69,6 +68,13 @@ set directory=~/.vim/.tmp
 set nowrap                                              " No line wrapping
 set list listchars=tab:>-,trail:·,extends:>,precedes:<  " Show tabs as >- and trailing space as ·
 
+" show at least 3 lines above/below cursor
+set scrolloff=3
+
+" and at least 7 columns next to cursor
+set sidescrolloff=7
+set sidescroll=1
+
 " Indent 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -108,12 +114,6 @@ set vb t_vb=
 let mapleader = ","
 
 " Keybindings
-" Next buffer
-nmap <silent> ,. :bnext<CR>
-
-" Previous buffer
-nmap <silent> ,m :bprev<CR>
-
 
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
@@ -134,12 +134,6 @@ set splitright
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" Show at least 3 lines above/below cursor
-set scrolloff=3
-" Show at least 7 columns next to cursor
-set sidescrolloff=7
-set sidescroll=1
 
 " Colorscheme
 set background=light
@@ -168,18 +162,13 @@ let NERDTreeMinimalUI=1
 " Use arrows for directories
 let NERDTreeDirArrows=1
 
-" Make F2 open NERDTree
-nmap <F2> :NERDTreeToggle<CR>
+" Make F2 open NERDTree, guarantees that the NERDTrees for all tabs will be one and the same
+map <F2> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
 " NERDCommenter
 let NERDDefaultNesting = 0
 let NERDRemoveExtraSpaces = 1
 let NERDSpaceDelims = 1
-
-"nmap <C-/> NERDComToggleComment<CR>
-" Command-/ to toggle comments
-" map <C-/> <plug>NERDCommenterToggle<CR>
-" imap <C-/> <Esc><plug>NERDCommenterToggle<CR>i
 
 " Bclose; do not let NERDTree take the whole window after closing the last
 " buffer. See: http://www.reddit.com/r/vim/comments/m4cjp/i_have_this_issue_i_keep_running_into_with/
@@ -189,10 +178,6 @@ nmap <Leader>q :Bclose<CR>
 " Temporarily disable :wq until I learn not to close the damn app the whole
 " time when I only want to save
 :cmap wq w
-
-
-" Command-t
-"let g:CommandTMaxHeight=20
 
 " Buffergator
 nmap <F3> :BuffergatorToggle<CR>
@@ -208,25 +193,23 @@ nmap <F1> :TMiniBufExplorer<CR>
 let g:miniBufExplSplitBelow=0
 
 " Control-][ to increase/decrease indentation
-"vmap <C-]> >gv
-"vmap <C-[> <gv
+vmap <C-]> >gv
+vmap <C-[> <gv
 
-" Control-/ to toggle comments
-"map <C-/> <plug>NERDCommenterToggle<CR>
-"imap <C-/> <Esc><plug>NERDCommenterToggle<CR>i
+" Control-space to toggle comments
+map <A-space> <plug>NERDCommenterToggle<CR>
+imap <C-space> <Esc><plug>NERDCommenterToggle<CR>i
 
-" Rotates through open buffers with control-tab / shift-control-tab
+" Rotates through open buffers with various keybindings
+nmap <silent> ,. :bnext<CR>
+nmap <silent> ,m :bprev<CR>
+
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
-" And also with page up/down
+
 map <C-PageUp> :bprevious<cr>
 map <C-PageDown> :bnext<cr>
 
-"map <C-PageUp> :BufSurfForward<CR>
-"map <C-PageDown> :BufSurfBack<CR>
-
-
-" git branch in statusline
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
+" For quick vimrc editing
+nmap <F10> :e $MYVIMRC<CR>
 nmap <F12> :source $MYVIMRC<CR>
