@@ -36,6 +36,9 @@ set t_Co=256
 set number
 set numberwidth=3
 
+" Highlight cursor line
+set cursorline
+
 " Status bar
 set laststatus=2                                        " Always show status bar (w/ filename)
 
