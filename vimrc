@@ -165,13 +165,17 @@ let NERDTreeMinimalUI=1
 " Use arrows for directories
 let NERDTreeDirArrows=1
 
-" Make F2 open NERDTree, guarantees that the NERDTrees for all tabs will be one and the same
-map <F2> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
+" Make F2 open NERDTree
+map <F2> :NERDTreeToggle<CR>
 
 " NERDCommenter
 let NERDDefaultNesting = 0
 let NERDRemoveExtraSpaces = 1
 let NERDSpaceDelims = 1
+
+" Control-space to toggle comments
+map <C-space> <plug>NERDCommenterToggle<CR>
+imap <C-space> <Esc><plug>NERDCommenterToggle<CR>i
 
 " Bclose; do not let NERDTree take the whole window after closing the last
 " buffer. See: http://www.reddit.com/r/vim/comments/m4cjp/i_have_this_issue_i_keep_running_into_with/
@@ -198,10 +202,6 @@ let g:miniBufExplSplitBelow=0
 " Control-][ to increase/decrease indentation
 vmap <C-]> >gv
 vmap <C-[> <gv
-
-" Control-space to toggle comments
-map <A-space> <plug>NERDCommenterToggle<CR>
-imap <C-space> <Esc><plug>NERDCommenterToggle<CR>i
 
 " Rotates through open buffers with various keybindings
 nmap <silent> ,. :bnext<CR>
