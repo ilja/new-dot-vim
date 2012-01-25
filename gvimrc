@@ -7,6 +7,7 @@ if has("gui_macvim")
 else
   "set guifont=Inconsolata\ 14
   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14
+  set lines=38 columns=140
 endif
 
 " ?
