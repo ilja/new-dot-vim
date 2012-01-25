@@ -193,12 +193,6 @@ let g:buffergator_viewport_split_policy="R"
 let g:buffergator_split_size=40
 let g:buffergator_autoexpand_on_split=0
 
-" MiniBufExplorer
-" toggle minibufexplorer
-nmap <F1> :TMiniBufExplorer<CR>
-" open on top
-let g:miniBufExplSplitBelow=0
-
 " Control-][ to increase/decrease indentation
 vmap <C-]> >gv
 vmap <C-[> <gv
