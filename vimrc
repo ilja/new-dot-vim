@@ -196,7 +196,6 @@ let g:buffergator_autoexpand_on_split=0
 " Tagbar
 nmap <F4> :TagbarToggle<CR>
 
-
 " Control-][ to increase/decrease indentation
 vmap <C-]> >gv
 vmap <C-[> <gv
