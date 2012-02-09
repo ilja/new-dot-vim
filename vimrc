@@ -215,10 +215,6 @@ imap <C-space> <Esc><plug>NERDCommenterToggle<CR>i
 cmap bc Bclose
 nmap <Leader>q :Bclose<CR>
 
-" Temporarily disable :wq until I learn not to close the damn app the whole
-" time when I only want to save
-:cmap wq w
-
 " Buffergator
 nmap <F3> :BuffergatorToggle<CR>
 let g:buffergator_suppress_keymaps=1 "disable the default keybindings

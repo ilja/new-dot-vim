@@ -37,3 +37,10 @@ if has("gui_macvim")
   map <D-t> :CommandT<CR>
   imap <D-t> <Esc>:CommandT<CR>
 endif
+
+" Temporarily disable :wq until I learn not to close the damn app the whole
+" time when I only want to save
+:cmap wq w
+
+
+
