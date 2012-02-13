@@ -242,3 +242,5 @@ map <C-PageDown> :bnext<cr>
 " For quick vimrc editing
 nmap <F10> :e $MYVIMRC<CR>
 nmap <F12> :source $MYVIMRC<CR>
+
+let g:NumberToggleTrigger="<F5>"
