@@ -243,4 +243,4 @@ map <C-PageDown> :bnext<cr>
 nmap <F10> :e $MYVIMRC<CR>
 nmap <F12> :source $MYVIMRC<CR>
 
-let g:NumberToggleTrigger="<F5>"
+let g:NumberToggleTrigger="<F6>"
