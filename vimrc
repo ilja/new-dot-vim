@@ -199,8 +199,6 @@ function s:CdIfDirectory(directory)
   endif
 endfunction
 
-
-
 " NERDCommenter
 let NERDDefaultNesting = 0
 let NERDRemoveExtraSpaces = 1
@@ -225,10 +223,6 @@ let g:buffergator_autoexpand_on_split=0
 " Tagbar
 nmap <F4> :TagbarToggle<CR>
 
-" Control-][ to increase/decrease indentation
-vmap <C-]> >gv
-vmap <C-[> <gv
-
 " Rotates through open buffers with various keybindings
 nmap <silent> ,. :bnext<CR>
 nmap <silent> ,m :bprev<CR>
@@ -244,3 +238,23 @@ nmap <F10> :e $MYVIMRC<CR>
 nmap <F12> :source $MYVIMRC<CR>
 
 let g:NumberToggleTrigger="<F6>"
+
+" Indent with Alt-]/[
+vmap <A-]> >gv
+vmap <A-[> <gv
+
+nmap <A-]> >>
+nmap <A-[> <<
+
+omap <A-]> >>
+omap <A-[> <<
+
+imap <A-]> <Esc>>>i
+imap <A-[> <Esc><<i
+
+" Disable arrow keys
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
