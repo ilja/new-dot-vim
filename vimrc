@@ -28,6 +28,16 @@ set encoding=utf-8                                      " Set encoding inside vi
 "set ttyfast                                             " Improves smoothness w/ multiple windows
 "set ruler                                               " Show ruler at bottom
 "set backspace=indent,eol,start                          " Nothing can stop the backspace !
+set hlsearch
+set incsearch
+set ignorecase smartcase                                 " Make searches case insensitive only if they contain upper-case characters
+
+" Clear the search buffer when hitting return
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
 
 " Use 256 color mode in terminal
 set t_Co=256
@@ -237,7 +247,7 @@ map <C-PageDown> :bnext<cr>
 nmap <F10> :e $MYVIMRC<CR>
 nmap <F12> :source $MYVIMRC<CR>
 
-let g:NumberToggleTrigger="<F6>"
+"let g:NumberToggleTrigger="<F6>"
 
 " Indent with Alt-]/[
 vmap <A-]> >gv
@@ -253,8 +263,9 @@ imap <A-]> <Esc>>>i
 imap <A-[> <Esc><<i
 
 " Disable arrow keys
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+" use <Left> <Nop> if tired of complaining
+map <Left> :echo "use h"<cr>
+map <Right> :echo "use l"<cr>
+map <Up> :echo "use k"<cr>
+map <Down> :echo "use j"<cr>
 

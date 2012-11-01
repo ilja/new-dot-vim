@@ -27,7 +27,7 @@ set guioptions-=m
 set guioptions+=e
 
 " Don't highlight search result.
-set nohlsearch
+" set nohlsearch
 
 " Control-Shift-F for Ack
 map <C-F> :Ack<space>
