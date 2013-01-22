@@ -15,7 +15,6 @@ syntax on
 " Enable filetype specific plugins and indenting
 filetype plugin indent on
 
-
 " Basic options
 set encoding=utf-8                                      " Set encoding inside vim to 32bit UTF-8 encoded Unicode
 "set modelines=0                                         " Prevent (some) modelines security exploits
@@ -24,7 +23,6 @@ set encoding=utf-8                                      " Set encoding inside vi
 "set nosmartindent                                       " Explicity don't try to guess how I want my indents
 "set showmode                                            " Put a message on last line showing edit mode
 "set showcmd                                             " Show partial commands
-"set cursorline                                          " Highlight current row
 "set ttyfast                                             " Improves smoothness w/ multiple windows
 "set ruler                                               " Show ruler at bottom
 "set backspace=indent,eol,start                          " Nothing can stop the backspace !
@@ -97,7 +95,7 @@ set expandtab
 "set textwidth=80                                        " Break line after 80 characters (on whitespace only)
 
 " Highlight column 100
-" set colorcolumn=100
+set colorcolumn=100
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
@@ -184,7 +182,7 @@ augroup AuNERDTreeCmd
 autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 
 " If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
+function! s:CdIfDirectory(directory)
   let explicitDirectory = isdirectory(a:directory)
   let directory = explicitDirectory || empty(a:directory)
 
@@ -214,9 +212,8 @@ let NERDDefaultNesting = 0
 let NERDRemoveExtraSpaces = 1
 let NERDSpaceDelims = 1
 
-" Control-space to toggle comments
-map <C-space> <plug>NERDCommenterToggle<CR>
-imap <C-space> <Esc><plug>NERDCommenterToggle<CR>i
+" leader + / to toggle comments
+map <leader>/ <plug>NERDCommenterToggle<cr>
 
 " Bclose; do not let NERDTree take the whole window after closing the last
 " buffer. See: http://www.reddit.com/r/vim/comments/m4cjp/i_have_this_issue_i_keep_running_into_with/
@@ -234,20 +231,20 @@ let g:buffergator_autoexpand_on_split=0
 nmap <F4> :TagbarToggle<CR>
 
 " Rotates through open buffers with various keybindings
-nmap <silent> ,. :bnext<CR>
-nmap <silent> ,m :bprev<CR>
+nmap <silent> ,. :bnext<cr>
+nmap <silent> ,m :bprev<cr>
 
 map <C-Tab> :bnext<cr>
-map <C-S-Tab> :bprevious<cr>
+map <C-S-Tab> :bprev<cr>
 
-map <C-PageUp> :bprevious<cr>
+map <C-PageUp> :bprev<cr>
 map <C-PageDown> :bnext<cr>
 
 " For quick vimrc editing
 nmap <F10> :e $MYVIMRC<CR>
 nmap <F12> :source $MYVIMRC<CR>
 
-"let g:NumberToggleTrigger="<F6>"
+let g:NumberToggleTrigger="<F6>"
 
 " Indent with Alt-]/[
 vmap <A-]> >gv
@@ -269,3 +266,29 @@ map <Right> :echo "use l"<cr>
 map <Up> :echo "use k"<cr>
 map <Down> :echo "use j"<cr>
 
+" This function quits the window only if it is not the last window.
+function! DonotQuitLastWindow()
+  if NumberOfWindows() != 1
+    let v:errmsg = ""
+    silent! quit
+    if v:errmsg != ""
+      "echohl ErrorMsg | echomsg v:errmsg | echohl NONE
+      "echoerr v:errmsg
+      echohl ErrorMsg | echo v:errmsg | echohl NONE
+    endif
+  else
+    echohl Error | echo "Can't quit the last window...use :q" | echohl None
+  endif
+endfunction
+
+function! NumberOfWindows()
+  let i = 1
+  while winbufnr(i) != -1
+    let i = i+1
+  endwhile
+  return i - 1
+endfunction
+
+nnoremap q :call DonotQuitLastWindow()<cr>
+
+" map :wq :confirm quit
