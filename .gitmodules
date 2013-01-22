@@ -73,3 +73,6 @@
 [submodule "bundle/vim-instant-markdown"]
 	path = bundle/vim-instant-markdown
 	url = git://github.com/suan/vim-instant-markdown.git
+[submodule "bundle/bclose"]
+	path = bundle/bclose
+	url = git@github.com:ilja/vim-bclose.git
