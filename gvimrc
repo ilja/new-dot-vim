@@ -7,8 +7,8 @@ if has("gui_macvim")
   macmenu &File.New\ Tab key=<D-T>
 else
   "set guifont=Inconsolata\ 14
-  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14
-  set lines=38 columns=140
+  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 12
+  set lines=41 columns=148
   " Control-space to toggle comments
   map <C-space> <plug>NERDCommenterToggle<CR>
   imap <C-space> <Esc><plug>NERDCommenterToggle<CR>i
