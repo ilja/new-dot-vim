@@ -69,7 +69,7 @@
 	url = https://github.com/tpope/vim-endwise.git
 [submodule "bundle/numbertoggle"]
 	path = bundle/numbertoggle
-	url = git://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+	url = git://github.com/Greduan/vim-numbertoggle.git
 [submodule "bundle/vim-instant-markdown"]
 	path = bundle/vim-instant-markdown
 	url = git://github.com/suan/vim-instant-markdown.git
