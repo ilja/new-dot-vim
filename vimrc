@@ -277,7 +277,8 @@ function! DonotQuitLastWindow()
       echohl ErrorMsg | echo v:errmsg | echohl NONE
     endif
   else
-    echohl Error | echo "Can't quit the last window...use :q" | echohl None
+    :execute "Bclose"
+    " echohl Error | echo "Can't quit the last window...use :q" | echohl None
   endif
 endfunction
 
@@ -289,6 +290,6 @@ function! NumberOfWindows()
   return i - 1
 endfunction
 
-nnoremap q :call DonotQuitLastWindow()<cr>
+nnoremap <silent> q :call DonotQuitLastWindow()<cr>
 
 " map :wq :confirm quit
