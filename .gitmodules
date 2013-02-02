@@ -70,9 +70,6 @@
 [submodule "bundle/numbertoggle"]
 	path = bundle/numbertoggle
 	url = git://github.com/Greduan/vim-numbertoggle.git
-[submodule "bundle/vim-instant-markdown"]
-	path = bundle/vim-instant-markdown
-	url = git://github.com/suan/vim-instant-markdown.git
 [submodule "bundle/bclose"]
 	path = bundle/bclose
 	url = https://github.com/ilja/vim-bclose.git
