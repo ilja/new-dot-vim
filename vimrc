@@ -207,14 +207,6 @@ function! s:CdIfDirectory(directory)
   endif
 endfunction
 
-" NERDCommenter
-let NERDDefaultNesting = 0
-let NERDRemoveExtraSpaces = 1
-let NERDSpaceDelims = 1
-
-" leader + / to toggle comments
-map <leader>/ <plug>NERDCommenterToggle<cr>
-
 " Bclose; do not let NERDTree take the whole window after closing the last
 " buffer. See: http://www.reddit.com/r/vim/comments/m4cjp/i_have_this_issue_i_keep_running_into_with/
 cmap bc Bclose
