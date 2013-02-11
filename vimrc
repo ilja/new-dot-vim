@@ -122,7 +122,7 @@ let g:ctrlp_match_window_reversed=0
 set vb t_vb=
 
 " Change leader from \ to ,
-let mapleader = ","
+" let mapleader = ","
 
 " Keybindings
 
