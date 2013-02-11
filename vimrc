@@ -285,3 +285,7 @@ endfunction
 nnoremap <silent> q :call DonotQuitLastWindow()<cr>
 
 " map :wq :confirm quit
+
+" blue insert cursor color and ver35 shape
+highlight iCursor guifg=white guibg=#4271ae
+set guicursor+=i:ver35-iCursor
