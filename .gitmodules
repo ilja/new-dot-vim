@@ -91,3 +91,6 @@
 [submodule "bundle/wildignore-gitignore"]
 	path = bundle/wildignore-gitignore
 	url = https://github.com/vitaly/vim-gitignore.git
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git
