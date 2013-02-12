@@ -109,7 +109,7 @@ set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem,*.sqlite3,Gemfile.
 " Disable archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 " Ignore bundler and sass cache
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/coverage/*
 " Ignore bundler binstubs and rails script
 set wildignore+=*/bin/*,*/script/*
 " Disable temp and backup files
@@ -117,6 +117,10 @@ set wildignore+=*.swp,*~,._*
 
 " Reverse order of ctrlp
 let g:ctrlp_match_window_reversed=0
+" Use git to list files
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+" Keep caches between sessions - f5 to refresh
+let g:ctrlp_clear_cache_on_exit = 0
 
 " Disable noise
 set vb t_vb=
@@ -165,7 +169,7 @@ let NERDTreeShowHidden = 1
 
 " Don't hijack NETRW
 let NERDTreeHijackNetrw = 0
-let NERDTreeIgnore=['\.$', '\~$']
+" let NERDTreeIgnore=['\.$', '\~$']
 
 " No 'help?' and 'up a dir' etc.
 let NERDTreeMinimalUI=1
@@ -175,6 +179,9 @@ let NERDTreeDirArrows=1
 
 " Make F2 open NERDTree
 map <F2> :NERDTreeToggle<CR>
+
+" Ignore these files and dirs
+let NERDTreeIgnore=['\.git$', '\~$', '\coverage$', '\bin$', '\.idea$']
 
 " Start with a empty file when starting in a directory given on the command
 " line. (stolen from janus)
@@ -284,4 +291,11 @@ endfunction
 
 nnoremap <silent> q :call DonotQuitLastWindow()<cr>
 
+let g:neocomplcache_enable_at_startup = 1
 " map :wq :confirm quit
+
+" remap F1 to Escape
+map <F1> <Esc>
+imap <F1> <Esc>
+
+:command W w

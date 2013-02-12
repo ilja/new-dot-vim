@@ -4,7 +4,9 @@
 if has("gui_macvim")
   "set guifont=Monaco:h14
   set guifont=Inconsolata-dz\ for\ Powerline:h14
+  set lines=47 columns=178
   macmenu &File.New\ Tab key=<D-T>
+  " map <F2> :maca toggleFileBrowser:<cr>
 else
   "set guifont=Inconsolata\ 14
   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14
