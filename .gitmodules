@@ -88,3 +88,6 @@
 [submodule "bundle/zencoding"]
 	path = bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule "bundle/wildignore-gitignore"]
+	path = bundle/wildignore-gitignore
+	url = https://github.com/vitaly/vim-gitignore.git
