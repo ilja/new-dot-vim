@@ -126,7 +126,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 set vb t_vb=
 
 " Change leader from \ to ,
-let mapleader = ","
+" let mapleader = ","
 
 " Keybindings
 
@@ -298,4 +298,9 @@ let g:neocomplcache_enable_at_startup = 1
 map <F1> <Esc>
 imap <F1> <Esc>
 
+" fat finger fix for W
 :command W w
+
+" blue insert cursor color and ver35 shape
+highlight iCursor guifg=white guibg=#4271ae
+set guicursor+=i:ver35-iCursor
