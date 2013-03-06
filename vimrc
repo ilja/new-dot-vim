@@ -304,3 +304,8 @@ imap <F1> <Esc>
 " blue insert cursor color and ver35 shape
 highlight iCursor guifg=white guibg=#4271ae
 set guicursor+=i:ver35-iCursor
+
+" let g:EasyMotion_leader_key = ','
+
+highlight clear SignColumn
+
