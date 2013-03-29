@@ -309,3 +309,6 @@ set guicursor+=i:ver35-iCursor
 
 highlight clear SignColumn
 
+" use siver_searcher instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
