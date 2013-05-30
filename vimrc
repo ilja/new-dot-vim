@@ -19,7 +19,6 @@ Bundle 'gmarik/vundle'
 " Bundles
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-railslog'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
@@ -27,11 +26,12 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-dispatch'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'JazzCore/ctrlp-cmatcher'
+" Bundle 'JazzCore/ctrlp-cmatcher'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'majutsushi/tagbar'
@@ -171,18 +171,11 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 " Keep caches between sessions - f5 to refresh
 let g:ctrlp_clear_cache_on_exit = 0
-" try ctrlp-cmatcher
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-let g:ctrlp_max_files = 10000
 
 " Disable noise
 set vb t_vb=
 
-" Change leader from \ to ,
-" let mapleader = ","
-
 " Keybindings
-
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -365,3 +358,9 @@ highlight clear SignColumn
 " use siver_searcher instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" Rspec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+
+let g:rspec_command = "Dispatch zeus rspec {spec}"
