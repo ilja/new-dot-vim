@@ -18,6 +18,7 @@ Bundle 'gmarik/vundle'
 
 " Bundles
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-railslog'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
@@ -30,6 +31,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'JazzCore/ctrlp-cmatcher'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'majutsushi/tagbar'
@@ -51,11 +53,11 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'othree/html5.vim'
 
 " Themes
 Bundle 'ilja/Vim-Tomorrow-Theme'
 Bundle 'altercation/vim-colors-solarized'
-
 
 " Enable filetype specific plugins and indenting
 filetype plugin indent on
@@ -169,6 +171,9 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 " Keep caches between sessions - f5 to refresh
 let g:ctrlp_clear_cache_on_exit = 0
+" try ctrlp-cmatcher
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+let g:ctrlp_max_files = 10000
 
 " Disable noise
 set vb t_vb=
