@@ -3,17 +3,65 @@
 "
 " Use ':source $MYVIMRC' to quickley see changes
 
-" Initialize pathogen
-call pathogen#infect()
-
 " Disable vi compatibility mode
 set nocompatible
 
-" Enable syntax highlighting
-syntax on
+" for vundle
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" Bundles
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-railslog'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'majutsushi/tagbar'
+Bundle 'Shougo/neocomplcache'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Greduan/vim-numbertoggle'
+Bundle 'ilja/vim-bclose'
+Bundle 'godlygeek/tabular'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-user'
+Bundle 'mattn/zencoding-vim'
+Bundle 'vitaly/vim-gitignore'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+
+" Language support
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+
+" Themes
+Bundle 'ilja/Vim-Tomorrow-Theme'
+Bundle 'altercation/vim-colors-solarized'
+
 
 " Enable filetype specific plugins and indenting
 filetype plugin indent on
+
+" Enable syntax highlighting
+syntax on
 
 " Basic options
 set encoding=utf-8                                      " Set encoding inside vim to 32bit UTF-8 encoded Unicode
