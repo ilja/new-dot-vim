@@ -197,8 +197,8 @@ set splitright
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Colorscheme
-set background=light
-colorscheme Tomorrow
+set background=dark
+colorscheme Tomorrow-Night
 
 " Nerdtree config
 " Enable nice colors (not compatible with arrows)
