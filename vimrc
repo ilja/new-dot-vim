@@ -3,17 +3,67 @@
 "
 " Use ':source $MYVIMRC' to quickley see changes
 
-" Initialize pathogen
-call pathogen#infect()
-
 " Disable vi compatibility mode
 set nocompatible
 
-" Enable syntax highlighting
-syntax on
+" for vundle
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" Bundles
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-dispatch'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+" Bundle 'JazzCore/ctrlp-cmatcher'
+Bundle 'mileszs/ack.vim'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'majutsushi/tagbar'
+Bundle 'Shougo/neocomplcache'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Bundle 'ilja/vim-bclose'
+Bundle 'godlygeek/tabular'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-user'
+Bundle 'mattn/zencoding-vim'
+Bundle 'vitaly/vim-gitignore'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+
+" Language support
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'othree/html5.vim'
+
+" Themes
+Bundle 'ilja/Vim-Tomorrow-Theme'
+Bundle 'altercation/vim-colors-solarized'
 
 " Enable filetype specific plugins and indenting
 filetype plugin indent on
+
+" Enable syntax highlighting
+syntax on
 
 " Basic options
 set encoding=utf-8                                      " Set encoding inside vim to 32bit UTF-8 encoded Unicode
@@ -125,11 +175,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Disable noise
 set vb t_vb=
 
-" Change leader from \ to ,
-" let mapleader = ","
-
 " Keybindings
-
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -151,8 +197,8 @@ set splitright
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Colorscheme
-set background=light
-colorscheme Tomorrow
+set background=dark
+colorscheme Tomorrow-Night
 
 " Nerdtree config
 " Enable nice colors (not compatible with arrows)
@@ -312,3 +358,9 @@ highlight clear SignColumn
 " use siver_searcher instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" Rspec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+
+let g:rspec_command = "Dispatch zeus rspec {spec}"
