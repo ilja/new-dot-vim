@@ -48,6 +48,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'gorodinskiy/vim-coloresque.git'
 
 " Language support
 Bundle 'vim-ruby/vim-ruby'
