@@ -49,6 +49,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'gorodinskiy/vim-coloresque.git'
+Bundle 'thoughtbot/vim-rspec'
 
 " Language support
 Bundle 'vim-ruby/vim-ruby'
@@ -185,14 +186,20 @@ nnoremap Y y$
 noremap H ^
 noremap L g_
 
-" Remove trailing spaces when exiting file
-autocmd BufWritePre * :%s/\s\+$//e
+" Easier split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Open new horizontal split windows below current
 set splitbelow
 
 " Open new vertical split windows to the right
 set splitright
+
+" Remove trailing spaces when exiting file
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -363,5 +370,6 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch zeus rspec {spec}"
