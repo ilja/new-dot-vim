@@ -7,6 +7,12 @@ if has("gui_macvim")
   set lines=47 columns=178
   macmenu &File.New\ Tab key=<D-T>
   " map <F2> :maca toggleFileBrowser:<cr>
+
+  " Use Marked.app to preview Markdown files...
+  function! s:setupMarkup()
+    nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
+  endfunction
+
 else
   "set guifont=Inconsolata\ 14
   set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14
@@ -25,13 +31,10 @@ set guioptions-=T
 set guioptions-=m
 
 " Scrollbar is always off.
- set guioptions-=rL
+set guioptions-=rL
 
 " Enable gui tab labels
 set guioptions+=e
-
-" Don't highlight search result.
-set nohlsearch
 
 " Control-Shift-F for Ack
 map <C-F> :Ack<space>

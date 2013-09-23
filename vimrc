@@ -111,6 +111,7 @@ set undoreload=10000
 " Use persistent undo file
 set undofile
 set undodir=~/.vim/.undo
+set undolevels=1000
 
 " Activate backups
 set backup
@@ -119,8 +120,10 @@ set backupdir=~/.vim/.backup
 " Global swap file dir
 set directory=~/.vim/.tmp
 
+" Automatically read file when changed outside vim
+set autoread
+
 "set lazyredraw                                          " Don't redraw screen when executing macros/untyped cmds
-"set autoread                                            " Automatically read file when changed outside vim
 "set title                                               " Title of window set to value of 'titlestring'
 "set mouse=a                                             " Use mouse everywhere
 "set noerrorbells                                        " Don't make noise
@@ -148,6 +151,9 @@ set expandtab
 
 " Highlight column 100
 set colorcolumn=100
+
+" Minimal width of the current window
+set winwidth=105
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
@@ -177,6 +183,9 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Disable noise
 set vb t_vb=
 
+" Enable system wide copy pase
+set clipboard=unnamedplus
+
 " Keybindings
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
@@ -200,6 +209,9 @@ set splitright
 
 " Remove trailing spaces when exiting file
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Use :w!! to save files with sudo
+cmap w!! %!sudo tee > /dev/null %
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -240,33 +252,34 @@ let NERDTreeIgnore=['\.git$', '\~$', '\coverage$', '\bin$', '\.idea$']
 " Start with a empty file when starting in a directory given on the command
 " line. (stolen from janus)
 augroup AuNERDTreeCmd
-autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+  autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 
-" If the parameter is a directory, cd into it
-function! s:CdIfDirectory(directory)
-  let explicitDirectory = isdirectory(a:directory)
-  let directory = explicitDirectory || empty(a:directory)
+  " If the parameter is a directory, cd into it
+  function! s:CdIfDirectory(directory)
+    let explicitDirectory = isdirectory(a:directory)
+    let directory = explicitDirectory || empty(a:directory)
 
-  if explicitDirectory
-    exe "cd " . fnameescape(a:directory)
-  endif
+    if explicitDirectory
+      exe "cd " . fnameescape(a:directory)
+    endif
 
-  " Allows reading from stdin
-  " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0
-    return
-  endif
+    " Allows reading from stdin
+    " ex: git diff | mvim -R -
+    if strlen(a:directory) == 0
+      return
+    endif
 
-  if directory
-   " NERDTree
-    wincmd p
-    bd
-  endif
+    if directory
+      " NERDTree
+      wincmd p
+      bd
+    endif
 
-  if explicitDirectory
-    wincmd p
-  endif
-endfunction
+    if explicitDirectory
+      wincmd p
+    endif
+  endfunction
+augroup END
 
 " Bclose; do not let NERDTree take the whole window after closing the last
 " buffer. See: http://www.reddit.com/r/vim/comments/m4cjp/i_have_this_issue_i_keep_running_into_with/
@@ -297,6 +310,12 @@ map <C-PageDown> :bnext<cr>
 nmap <F10> :e $MYVIMRC<CR>
 nmap <F12> :source $MYVIMRC<CR>
 
+" Automatically reload vim after saving vimrc
+aug AutoloadVimrc
+  au!
+  au BufWritePost $MYVIMRC source $MYVIMRC
+aug END
+
 let g:NumberToggleTrigger="<F6>"
 
 " Indent with Alt-]/[
@@ -311,6 +330,10 @@ omap <A-[> <<
 
 imap <A-]> <Esc>>>i
 imap <A-[> <Esc><<i
+
+" Make j/k move up/down a screen line instead of a physical file line (for wrapped lines)
+nmap k gk
+nmap j gj
 
 " Disable arrow keys
 " use <Left> <Nop> if tired of complaining
@@ -352,8 +375,12 @@ let g:neocomplcache_enable_at_startup = 1
 map <F1> <Esc>
 imap <F1> <Esc>
 
+" remap kj and jj to Escape
+inoremap kj <ESC>
+inoremap jj <ESC>
+
 " fat finger fix for W
-:command W w
+command! W w
 
 " blue insert cursor color and ver35 shape
 highlight iCursor guifg=white guibg=#4271ae
@@ -373,3 +400,6 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch zeus rspec {spec}"
+
+" unsure?
+set completefunc=syntaxcomplete#Complete
