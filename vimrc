@@ -401,5 +401,3 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 
-" unsure?
-set completefunc=syntaxcomplete#Complete
