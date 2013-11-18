@@ -157,8 +157,8 @@ set colorcolumn=100
 " Minimal width of the current window
 set winwidth=105
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
+" Powerline fonts in airline
+let g:airline_powerline_fonts = 1
 
 " Wildignore
 " Ignore .git etc dirs
@@ -184,9 +184,6 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 " Disable noise
 set vb t_vb=
-
-" Enable system wide copy pase
-set clipboard=unnamedplus
 
 " Keybindings
 
