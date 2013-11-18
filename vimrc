@@ -28,7 +28,8 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-dispatch'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 " Bundle 'JazzCore/ctrlp-cmatcher'
@@ -50,6 +51,7 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'gorodinskiy/vim-coloresque.git'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Language support
 Bundle 'vim-ruby/vim-ruby'
@@ -401,5 +403,3 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 
-" unsure?
-set completefunc=syntaxcomplete#Complete

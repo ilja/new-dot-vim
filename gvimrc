@@ -14,9 +14,12 @@ if has("gui_macvim")
   endfunction
 
 else
+  " use gui to set font: set guifont=*
+  " show current font: set guifont?
   "set guifont=Inconsolata\ 14
-  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14
+  " set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14
   " set guifont=Source\ Code\ Pro\ For\ Powerline\ 14
+  set guifont=Source\ Code\ Pro\ Light:h15
   set lines=41 columns=148
 endif
 
