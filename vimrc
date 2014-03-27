@@ -59,6 +59,9 @@ Bundle 'scrooloose/nerdtree'
 " Open files with control-p
 Bundle 'kien/ctrlp.vim'
 
+" Visualize your undo tree
+Bundle 'sjl/gundo.vim'
+
 " Search with the silver searcher
 Bundle 'rking/ag.vim'
 
@@ -349,6 +352,9 @@ let g:buffergator_autoexpand_on_split=0
 
 " Tagbar
 nmap <F4> :TagbarToggle<CR>
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
 
 " Rotates through open buffers with various keybindings
 nmap <silent> ,. :bnext<cr>
