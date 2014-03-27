@@ -1,0 +1,29 @@
+snippet if "if <condition> ... end"
+if ${1}
+	${2}
+end
+endsnippet
+
+snippet unless "unless <condition> ... end"
+unless ${1}
+	${0}
+end
+endsnippet
+
+snippet def "def <name>..."
+def ${1}
+	${0}
+end
+endsnippet
+
+snippet desc "describe Object do ... end"
+describe ${1} do
+	${0}
+end
+endsnippet
+
+snippet it "it 'does somethimg' do ... end"
+it '${1}' do
+	${0}
+end
+endsnippet

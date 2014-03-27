@@ -12,46 +12,97 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
+" Bundles
+" Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-" Bundles
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-dispatch'
-Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-" Bundle 'JazzCore/ctrlp-cmatcher'
-Bundle 'rking/ag.vim'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'majutsushi/tagbar'
-Bundle 'Shougo/neocomplcache'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'jeffkreeftmeijer/vim-numbertoggle'
-Bundle 'ilja/vim-bclose'
-Bundle 'godlygeek/tabular'
+" Text object helpers
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-user'
-Bundle 'mattn/zencoding-vim'
+
+" Git client
+Bundle 'tpope/vim-fugitive'
+
+" Ruby on Rails power tools
+Bundle 'tpope/vim-rails'
+
+" Pairs of handy bracket mappings
+Bundle 'tpope/vim-unimpaired'
+
+" Quoting/parenthesizing made simple
+Bundle 'tpope/vim-surround'
+
+" Markdown support
+Bundle 'tpope/vim-markdown'
+
+" Wisely add 'end' in after if, do etc
+Bundle 'tpope/vim-endwise'
+
+" Comment / uncomment
+Bundle 'tpope/vim-commentary'
+
+" Supercharge . repeating
+Bundle 'tpope/vim-repeat'
+
+" Asynchronous build and test dispatcher
+Bundle 'tpope/vim-dispatch'
+
+" Easy navigation
+Bundle 'Lokaltog/vim-easymotion'
+
+" Nice statusline
+Bundle 'bling/vim-airline'
+
+" Directory browser
+Bundle 'scrooloose/nerdtree'
+
+" Open files with control-p
+Bundle 'kien/ctrlp.vim'
+
+" Search with the silver searcher
+Bundle 'rking/ag.vim'
+
+" List, select and switch between buffers
+Bundle 'jeetsukumaran/vim-buffergator'
+
+" Displays tags in a window, ordered by scope
+Bundle 'majutsushi/tagbar'
+
+" Show git info in the gutter
+Bundle 'airblade/vim-gitgutter'
+
+" Relative / absolute line numbers toggle
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+
+" Delete buffers without closing the window
+Bundle 'ilja/vim-bclose'
+
+" Align text
+Bundle 'godlygeek/tabular'
+
+" A custom text object for selecting ruby blocks.
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
+" Emmet for vim (formerly zencoding)
+Bundle 'mattn/emmet-vim'
+
+" Prevent tab completion from showing gitignored files
 Bundle 'vitaly/vim-gitignore'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
+
+" Snippets engine
+Bundle 'SirVer/ultisnips'
+
+" Inline css/less/sass/html color preview
 Bundle 'gorodinskiy/vim-coloresque.git'
+
+" Control rspec from within vim
 Bundle 'thoughtbot/vim-rspec'
+
+" Sublime text like multiple cursors
 Bundle 'terryma/vim-multiple-cursors'
+
+" Insert or delete brackets, parens, quotes in pair
+Bundle 'jiangmiao/auto-pairs'
 
 " Language support
 Bundle 'vim-ruby/vim-ruby'
@@ -62,6 +113,10 @@ Bundle 'othree/html5.vim'
 " Themes
 Bundle 'ilja/Vim-Tomorrow-Theme'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/base16-vim'
+
+" Enable matchit
+runtime macros/matchit.vim
 
 " Enable filetype specific plugins and indenting
 filetype plugin indent on
@@ -151,11 +206,11 @@ set expandtab
 
 "set textwidth=80                                        " Break line after 80 characters (on whitespace only)
 
-" Highlight column 100
-set colorcolumn=100
+" Highlight column 80
+set colorcolumn=80
 
 " Minimal width of the current window
-set winwidth=105
+set winwidth=85
 
 " Powerline fonts in airline
 let g:airline_powerline_fonts = 1
@@ -216,8 +271,8 @@ cmap w!! %!sudo tee > /dev/null %
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Colorscheme
-set background=dark
-colorscheme Tomorrow-Night
+set background=light
+colorscheme base16-default
 
 " Nerdtree config
 " Enable nice colors (not compatible with arrows)
@@ -307,7 +362,7 @@ map <C-PageDown> :bnext<cr>
 
 " For quick vimrc editing
 nmap <F10> :e $MYVIMRC<CR>
-nmap <F12> :source $MYVIMRC<CR>
+nmap <F9> :source $MYVIMRC<CR>
 
 " Automatically reload vim after saving vimrc
 aug AutoloadVimrc
@@ -367,7 +422,6 @@ endfunction
 
 nnoremap <silent> q :call DonotQuitLastWindow()<cr>
 
-let g:neocomplcache_enable_at_startup = 1
 " map :wq :confirm quit
 
 " remap F1 to Escape
@@ -385,8 +439,6 @@ command! W w
 highlight iCursor guifg=white guibg=#4271ae
 set guicursor+=i:ver35-iCursor
 
-" let g:EasyMotion_leader_key = ','
-
 highlight clear SignColumn
 
 " Rspec.vim mappings
@@ -397,3 +449,10 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 
+" Use tab for snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Define custom snippets directory
+let g:UltiSnipsSnippetsDir="~/.vim/custom_snippets"
