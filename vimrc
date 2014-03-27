@@ -33,7 +33,7 @@ Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 " Bundle 'JazzCore/ctrlp-cmatcher'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'majutsushi/tagbar'
 Bundle 'Shougo/neocomplcache'
@@ -388,9 +388,6 @@ set guicursor+=i:ver35-iCursor
 " let g:EasyMotion_leader_key = ','
 
 highlight clear SignColumn
-
-" use siver_searcher instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Rspec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>

@@ -39,8 +39,8 @@ set guioptions-=rL
 " Enable gui tab labels
 set guioptions+=e
 
-" Control-Shift-F for Ack
-map <C-F> :Ack<space>
+" Control-Shift-F for Ag
+map <C-F> :Ag<space>
 
 " Temporarily disable :wq until I learn not to close the damn app the whole
 " time when I only want to save
