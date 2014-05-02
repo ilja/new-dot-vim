@@ -117,6 +117,7 @@ Bundle 'othree/html5.vim'
 Bundle 'ilja/Vim-Tomorrow-Theme'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
+Bundle 'noahfrederick/vim-hemisu'
 
 " Enable matchit
 runtime macros/matchit.vim
@@ -275,7 +276,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Colorscheme
 set background=light
-colorscheme base16-default
+" let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme hemisu
 
 " Nerdtree config
 " Enable nice colors (not compatible with arrows)
