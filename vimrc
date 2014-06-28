@@ -92,8 +92,20 @@ Bundle 'mattn/emmet-vim'
 " Prevent tab completion from showing gitignored files
 Bundle 'vitaly/vim-gitignore'
 
-" Snippets engine
-Bundle 'SirVer/ultisnips'
+" Tab complete
+Bundle 'ervandew/supertab'
+
+" Snippets + dependencies
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
+
+" Sane vim session handling
+Bundle 'tpope/vim-obsession'
+
+" Better netrw behaviour
+Bundle 'tpope/vim-vinegar'
 
 " Inline css/less/sass/html color preview
 Bundle 'gorodinskiy/vim-coloresque.git'
@@ -117,6 +129,7 @@ Bundle 'othree/html5.vim'
 Bundle 'ilja/Vim-Tomorrow-Theme'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
+Bundle 'noahfrederick/vim-hemisu'
 
 " Enable matchit
 runtime macros/matchit.vim
@@ -274,8 +287,8 @@ cmap w!! %!sudo tee > /dev/null %
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Colorscheme
-set background=light
-colorscheme base16-default
+set background=dark
+colorscheme base16-eighties
 
 " Nerdtree config
 " Enable nice colors (not compatible with arrows)
@@ -455,10 +468,3 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 
-" Use tab for snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Define custom snippets directory
-let g:UltiSnipsSnippetsDir="~/.vim/custom_snippets"
