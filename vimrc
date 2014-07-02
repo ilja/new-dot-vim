@@ -287,7 +287,7 @@ cmap w!! %!sudo tee > /dev/null %
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Colorscheme
-set background=dark
+set background=light
 colorscheme base16-eighties
 
 " Nerdtree config

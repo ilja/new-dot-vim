@@ -46,5 +46,6 @@ map <C-F> :Ag<space>
 " time when I only want to save
 " :cmap wq w
 
-
+" Set gui background
+set background=dark
 
