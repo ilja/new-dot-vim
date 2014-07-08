@@ -77,6 +77,9 @@ Bundle 'airblade/vim-gitgutter'
 " Relative / absolute line numbers toggle
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 
+" Better scrollign with c-u / c-d
+Bundle 'terryma/vim-smooth-scroll'
+
 " Delete buffers without closing the window
 Bundle 'ilja/vim-bclose'
 
@@ -118,6 +121,15 @@ Bundle 'terryma/vim-multiple-cursors'
 
 " Insert or delete brackets, parens, quotes in pair
 Bundle 'jiangmiao/auto-pairs'
+
+" Dim inactive windows
+Bundle 'blueyed/vim-diminactive'
+
+" Indent guides
+Bundle 'nathanaelkane/vim-indent-guides'
+
+" Rainbow coloring of parentheses
+Bundle 'kien/rainbow_parentheses.vim'
 
 " Language support
 Bundle 'vim-ruby/vim-ruby'
@@ -271,6 +283,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Smooth scrolling
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
 " Open new horizontal split windows below current
 set splitbelow
 
@@ -289,6 +307,10 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Colorscheme
 set background=dark
 colorscheme base16-eighties
+
+" Indent guides
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
 
 " Nerdtree config
 " Enable nice colors (not compatible with arrows)
@@ -467,4 +489,14 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch zeus rspec {spec}"
+
+" Enable rainbow parentheses
+nmap <F7> :RainbowParenthesesToggle<CR>
+" au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" how many lines before/max current line to start syntax highlighting parsing
+autocmd Syntax * syn sync clear | syntax sync minlines=512 | syntax sync maxlines=512
 
