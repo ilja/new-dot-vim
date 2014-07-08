@@ -131,6 +131,11 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " Rainbow coloring of parentheses
 Bundle 'kien/rainbow_parentheses.vim'
 
+" Play
+Bundle 'gregsexton/gitv'
+Bundle 'mbbill/undotree'
+Bundle 'mhinz/vim-startify'
+
 " Language support
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'pangloss/vim-javascript'
