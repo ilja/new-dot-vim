@@ -13,6 +13,9 @@ if has("gui_macvim")
     nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
   endfunction
 
+  " Use \d on top of a word to look it up in Dictionary.app
+  nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
+
 else
   " use gui to set font: set guifont=*
   " show current font: set guifont?
