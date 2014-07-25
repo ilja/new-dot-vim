@@ -135,6 +135,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'gregsexton/gitv'
 Bundle 'mbbill/undotree'
 Bundle 'mhinz/vim-startify'
+Bundle 'Shougo/neocomplete.vim'
 
 " Language support
 Bundle 'vim-ruby/vim-ruby'
