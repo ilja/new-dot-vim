@@ -142,6 +142,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
+Bundle 'elixir-lang/vim-elixir'
 
 " Themes
 Bundle 'ilja/Vim-Tomorrow-Theme'
