@@ -238,7 +238,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-"set textwidth=80                                        " Break line after 80 characters (on whitespace only)
+" Break lines after 80 characters when editing markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Highlight column 80
 set colorcolumn=80
